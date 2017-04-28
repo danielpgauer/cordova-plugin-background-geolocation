@@ -308,7 +308,7 @@ public class DistanceFilterLocationProvider extends AbstractLocationProvider imp
                 setPace(true);
             }
             if (location.distanceTo(lastLocation) < config.getDistanceFilter()) {
-                return;
+               // return;
             }
         } else if (stationaryLocation != null) {
             return;
@@ -324,6 +324,7 @@ public class DistanceFilterLocationProvider extends AbstractLocationProvider imp
     }
 
     private Integer calculateDistanceFilter(Float speed) {
+		speed = 10;
         Double newDistanceFilter = (double) config.getDistanceFilter();
         if (speed < 100) {
             float roundedDistanceFilter = (round(speed / 5) * 5);
