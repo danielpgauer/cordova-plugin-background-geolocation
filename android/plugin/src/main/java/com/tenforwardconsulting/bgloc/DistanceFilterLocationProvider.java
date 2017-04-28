@@ -329,7 +329,7 @@ public class DistanceFilterLocationProvider extends AbstractLocationProvider imp
             float roundedDistanceFilter = (round(speed / 5) * 5);
             newDistanceFilter = pow(roundedDistanceFilter, 2) + (double) config.getDistanceFilter();
         }
-        return (newDistanceFilter.intValue() < 1000) ? newDistanceFilter.intValue() : 1000;
+        return config.getDistanceFilter();//(newDistanceFilter.intValue() < 1000) ? newDistanceFilter.intValue() : 1000;
     }
 
     private void startMonitoringStationaryRegion(Location location) {
